@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rm -rf .next",
+    "clean:dev": "npm run clean && npm run dev",
+    "clean:build": "npm run clean && npm run build"
   },
   "dependencies": {
     "chart.js": "^4.5.0",
