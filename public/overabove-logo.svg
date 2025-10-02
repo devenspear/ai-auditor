@@ -1,0 +1,13 @@
+<svg width="1400" height="200" viewBox="0 0 1400 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Mirrored/Backwards text on LEFT in DARK NAVY -->
+  <g transform="scale(-1, 1) translate(-700, 0)">
+    <text x="350" y="140" font-family="'Palatino Linotype', 'Palatino', 'Georgia', serif" font-size="150" font-weight="700" text-anchor="middle" fill="#1e3a5f" letter-spacing="2">
+      OVERABOVE
+    </text>
+  </g>
+
+  <!-- Normal text on RIGHT in LIGHT GRAY -->
+  <text x="700" y="140" font-family="'Palatino Linotype', 'Palatino', 'Georgia', serif" font-size="150" font-weight="700" text-anchor="middle" fill="#b8bcc4" letter-spacing="2">
+    OVERABOVE
+  </text>
+</svg>

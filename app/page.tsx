@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Chart, RadarController, RadialLinearScale, PointElement, LineElement, Filler, Tooltip, Legend } from 'chart.js';
 
 // Register Chart.js components
@@ -114,6 +115,16 @@ export default function AIAuditor() {
     <div className="bg-slate-50 text-slate-700">
       <div className="container mx-auto p-4 md:p-8">
         <header className="text-center my-8 md:my-12">
+          <div className="mb-8 flex justify-center group">
+            <Image
+              src="/OA-Logo2.png"
+              alt="Overabove"
+              width={360}
+              height={72}
+              priority
+              className="h-10 md:h-14 w-auto opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            />
+          </div>
           <h1 className="text-4xl md:text-6xl font-black bg-gradient-to-r from-blue-400 via-blue-500 to-slate-600 bg-clip-text text-transparent pb-1">The AI Revolution in Marketing</h1>
           <p className="mt-4 text-lg md:text-xl max-w-3xl mx-auto text-slate-600">A new era is dawning. Brands are no longer defined by what they say, but by how AI understands them. This is the playbook for navigating the next five years.</p>
         </header>
@@ -522,8 +533,318 @@ export default function AIAuditor() {
           </div>
         </section>
 
+        {/* Interest Form Section */}
+        <section className="my-20 transition-all duration-700" data-section-index="7" style={{opacity: visibleSections.has(7) ? 1 : 0, transform: visibleSections.has(7) ? 'translateY(0)' : 'translateY(2rem)'}}>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-extrabold bg-gradient-to-r from-slate-700 via-slate-600 to-slate-500 bg-clip-text text-transparent">Get Your Free AI Readiness Assessment</h2>
+            <p className="mt-2 text-slate-600 max-w-3xl mx-auto">Join forward-thinking brands who are already preparing for the AI-powered future. Fill out the form below and we&apos;ll provide you with a comprehensive evaluation of your digital presence.</p>
+          </div>
+          <div className="bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 rounded-2xl shadow-xl p-8 md:p-12 border border-slate-200">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                // Show success message
+                const form = e.target as HTMLFormElement;
+                const formContainer = form.parentElement;
+                if (formContainer) {
+                  formContainer.innerHTML = `
+                    <div class="text-center py-16">
+                      <div class="inline-flex items-center justify-center w-20 h-20 bg-green-500 rounded-full mb-6">
+                        <svg class="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                      </div>
+                      <h3 class="text-3xl font-bold text-slate-800 mb-3">Thank You for Your Interest!</h3>
+                      <p class="text-lg text-slate-600 max-w-md mx-auto">We've received your submission and will be in touch shortly with your AI Readiness Assessment.</p>
+                    </div>
+                  `;
+                }
+              }}
+              className="space-y-6"
+            >
+              {/* Contact Information */}
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                  <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                  </svg>
+                  Contact Information
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="firstName" className="block text-sm font-semibold text-slate-700 mb-2">
+                      First Name <span className="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="firstName"
+                      name="firstName"
+                      required
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                      placeholder="John"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="lastName" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Last Name <span className="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      id="lastName"
+                      name="lastName"
+                      required
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                      placeholder="Smith"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Email Address <span className="text-red-600">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                      placeholder="john.smith@company.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                      placeholder="+1 (555) 123-4567"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Company Information */}
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                  <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                  </svg>
+                  Company Information
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  <div>
+                    <label htmlFor="companyName" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Company Name <span className="text-red-600">*</span>
+                    </label>
+                        <input
+                          type="text"
+                          id="companyName"
+                          name="companyName"
+                          required
+                          className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                          placeholder="Acme Corporation"
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="companyUrl" className="block text-sm font-semibold text-slate-700 mb-2">
+                          Company Website <span className="text-red-600">*</span>
+                        </label>
+                        <input
+                          type="url"
+                          id="companyUrl"
+                          name="companyUrl"
+                          required
+                          className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                          placeholder="https://www.example.com"
+                        />
+                      </div>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                          <label htmlFor="industry" className="block text-sm font-semibold text-slate-700 mb-2">
+                            Industry
+                          </label>
+                          <select
+                            id="industry"
+                            name="industry"
+                            className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 transition-all duration-200"
+                          >
+                            <option value="">Select an industry</option>
+                            <option value="technology">Technology & Software</option>
+                            <option value="ecommerce">E-Commerce & Retail</option>
+                            <option value="healthcare">Healthcare & Medical</option>
+                            <option value="finance">Finance & Banking</option>
+                            <option value="education">Education & Training</option>
+                            <option value="realestate">Real Estate</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="professional">Professional Services</option>
+                            <option value="hospitality">Hospitality & Travel</option>
+                            <option value="nonprofit">Nonprofit & Government</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                        <div>
+                          <label htmlFor="companySize" className="block text-sm font-semibold text-slate-700 mb-2">
+                            Company Size
+                          </label>
+                          <select
+                            id="companySize"
+                            name="companySize"
+                            className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 transition-all duration-200"
+                          >
+                            <option value="">Select company size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="501-1000">501-1000 employees</option>
+                            <option value="1001+">1001+ employees</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div>
+                        <label htmlFor="jobTitle" className="block text-sm font-semibold text-slate-700 mb-2">
+                          Your Job Title
+                        </label>
+                        <input
+                          type="text"
+                          id="jobTitle"
+                          name="jobTitle"
+                          className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                          placeholder="Marketing Director"
+                        />
+                      </div>
+                    </div>
+              </div>
+
+              {/* Business Context */}
+              <div className="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
+                <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
+                  <svg className="w-6 h-6 mr-2 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                  </svg>
+                  Tell Us About Your Business (Optional)
+                </h3>
+                <div className="space-y-4">
+                  <div>
+                    <label htmlFor="productDescription" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Products/Services & Value Proposition
+                    </label>
+                    <textarea
+                      id="productDescription"
+                      name="productDescription"
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200 resize-none"
+                      placeholder="Briefly describe what your company offers and what makes you unique..."
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="challenges" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Current Marketing Challenges
+                    </label>
+                    <textarea
+                      id="challenges"
+                      name="challenges"
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200 resize-none"
+                      placeholder="What are your biggest marketing challenges or pain points? (e.g., low organic visibility, inconsistent brand messaging, lack of AI strategy...)"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="competitors" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Key Competitors
+                    </label>
+                    <input
+                      type="text"
+                      id="competitors"
+                      name="competitors"
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200"
+                      placeholder="competitor1.com, competitor2.com, competitor3.com"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="marketingGoals" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Primary Marketing Goals
+                    </label>
+                    <select
+                      id="marketingGoals"
+                      name="marketingGoals"
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 transition-all duration-200"
+                    >
+                      <option value="">Select your primary goal</option>
+                      <option value="brand-awareness">Increase Brand Awareness</option>
+                      <option value="lead-generation">Generate More Leads</option>
+                      <option value="organic-traffic">Improve Organic Search Traffic</option>
+                      <option value="ai-visibility">Improve AI/GEO Visibility</option>
+                      <option value="content-strategy">Develop Content Strategy</option>
+                      <option value="competitive-edge">Gain Competitive Advantage</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="timeline" className="block text-sm font-semibold text-slate-700 mb-2">
+                      When Are You Looking to Start?
+                    </label>
+                    <select
+                      id="timeline"
+                      name="timeline"
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 transition-all duration-200"
+                    >
+                      <option value="">Select a timeframe</option>
+                      <option value="immediately">Immediately</option>
+                      <option value="1-3-months">1-3 months</option>
+                      <option value="3-6-months">3-6 months</option>
+                      <option value="6-12-months">6-12 months</option>
+                      <option value="just-exploring">Just exploring</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label htmlFor="additionalInfo" className="block text-sm font-semibold text-slate-700 mb-2">
+                      Additional Information
+                    </label>
+                    <textarea
+                      id="additionalInfo"
+                      name="additionalInfo"
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-300 focus:border-blue-500 focus:bg-white focus:ring-2 focus:ring-blue-200 text-slate-800 placeholder-slate-400 transition-all duration-200 resize-none"
+                      placeholder="Is there anything else you'd like us to know?"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="text-center pt-4">
+                <button
+                  type="submit"
+                  className="inline-flex items-center justify-center px-12 py-4 text-lg font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full hover:from-blue-700 hover:to-indigo-700 hover:scale-105 active:scale-95 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-all duration-200 shadow-xl hover:shadow-2xl"
+                >
+                  <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  </svg>
+                  Get My Free AI Assessment
+                </button>
+                <p className="mt-4 text-sm text-slate-600">
+                  By submitting this form, you agree to receive communications from Overabove. We respect your privacy.
+                </p>
+              </div>
+            </form>
+          </div>
+        </section>
+
         <footer className="text-center mt-16 py-8 border-t border-slate-200">
-          <p className="text-slate-500 mt-2">Ready to lead the AI revolution? Let&apos;s build the future of marketing, together.</p>
+          <div className="mb-6 flex justify-center">
+            <Image
+              src="/OA-Logo2.png"
+              alt="Overabove"
+              width={270}
+              height={54}
+              className="h-8 w-auto"
+            />
+          </div>
+          <p className="text-slate-500 text-sm">© 2025 Overabove, LLC. All rights reserved.</p>
+          <p className="text-slate-500 mt-2 text-sm">Ready to lead the AI revolution? Let&apos;s build the future of marketing, together.</p>
         </footer>
       </div>
     </div>
